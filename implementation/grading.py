@@ -1,0 +1,28 @@
+"""
+grading
+"""
+
+
+def gradingStudents(grades):
+    rounded_grades = []
+    for grade in grades:
+        if grade > 37:
+            r = grade % 5
+            if r > 2:
+                grade += (5 - r)
+
+        rounded_grades.append(grade)
+
+    return rounded_grades
+
+
+if __name__ == '__main__':
+    grades_count = int(input().strip())
+    grades = []
+    for _ in range(grades_count):
+        grades_item = int(input().strip())
+        grades.append(grades_item)
+
+    result = gradingStudents(grades)
+    print('\n'.join(map(str, result)))
+    print('\n')
