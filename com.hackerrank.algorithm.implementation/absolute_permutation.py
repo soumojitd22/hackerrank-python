@@ -4,16 +4,24 @@ absolute-permutation
 
 
 def absolutePermutation(n, k):
-    res = [0 for _ in range(n)]
-    for i in range(1, n + 1):
-        if (1 <= i - k <= n) and (i - k not in res):
-            res[i - 1] = i - k
-        elif (1 <= i + k <= n) and (i + k not in res):
-            res[i - 1] = i + k
-        else:
-            return [-1]
+    if k == 0:
+        return [i + 1 for i in range(n)]
+    elif n % (2 * k) != 0:
+        return [-1]
+    else:
+        res = [0 for _ in range(n)]
+        m = n // (2 * k)
+        i = 0
+        for _ in range(m):
+            for _ in range(k):
+                i += 1
+                res[i - 1] = i + k
 
-    return res
+            for _ in range(k):
+                i += 1
+                res[i - 1] = i - k
+
+        return res
 
 
 if __name__ == '__main__':
