@@ -7,15 +7,14 @@ def get_money_spent(keyboards, drives, b):
     keyboards.sort(reverse=True)
     drives.sort(reverse=True)
     max_spent = -1
-    for i in range(len(keyboards)):
+    for keyboard in keyboards:
         j = 0
-        if keyboards[i] + drives[j] < max_spent:
+        if keyboard + drives[j] < max_spent:
             return max_spent
-        while j < len(drives) and keyboards[i] + drives[j] > b:
+        while j < len(drives) and keyboard + drives[j] > b:
             j += 1
         if j < len(drives):
-            spent = keyboards[i] + drives[j]
-            max_spent = max(spent, max_spent)
+            max_spent = max(max_spent, keyboard + drives[j])
 
     return max_spent
 
