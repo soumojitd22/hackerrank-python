@@ -4,7 +4,6 @@ climbing-the-leaderboard
 
 
 def climbing_leaderboard(scores, alice):
-    result = []
     ranks = [scores[0]]
     for i in range(1, len(scores)):
         if scores[i] != scores[i - 1]:
@@ -16,13 +15,13 @@ def climbing_leaderboard(scores, alice):
             j -= 1
 
         if j == -1:
-            result.append(1)
+            alice[i] = 1
         elif alice[i] == ranks[j]:
-            result.append(j + 1)
+            alice[i] = j + 1
         else:
-            result.append(j + 2)
+            alice[i] = j + 2
 
-    return result
+    return alice
 
 
 if __name__ == '__main__':
