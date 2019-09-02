@@ -1,21 +1,17 @@
 """
 picking-numbers
 """
+from collections import Counter
 
 
 def pickingNumbers(a):
-    m = {}
     count = 1
-    for i in a:
-        if i in m:
-            m[i] += 1
-            count = m[i] if count < m[i] else count
-        else:
-            m[i] = 1
-
+    m = Counter(a)
     for i in m.keys():
         if (i + 1 in m) and (m[i] + m[i + 1] > count):
             count = m[i] + m[i + 1]
+        elif m[i] > count:
+            count = m[i]
 
     return count
 
