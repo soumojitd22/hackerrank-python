@@ -27,7 +27,7 @@ def queens_attack(n, k, r_q, c_q, obstacles):
             else:
                 down = min(r_q - r_o - 1, down)
 
-        elif abs(r_o - r_q) / abs(c_o - c_q) == 1:
+        elif abs(r_o - r_q) == abs(c_o - c_q):
             # For diagonals
             if r_o > r_q and c_o > c_q:
                 # For up - right
