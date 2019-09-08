@@ -33,7 +33,7 @@ def queens_attack(n, k, r_q, c_q, obstacles):
                 # For up - right
                 up_right = min(r_o - r_q - 1, up_right)
             elif r_o > r_q:
-                # For up -left
+                # For up - left
                 up_left = min(r_o - r_q - 1, up_left)
             elif c_o < c_q:
                 # For down - left
