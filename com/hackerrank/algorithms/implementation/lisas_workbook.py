@@ -4,25 +4,26 @@ lisas-workbook
 
 
 def workbook(n, k, arr):
-    page = 1
-    special = 0
-    for p in arr:
-        for i in range(1, p + 1):
-            if i == page:
-                special += 1
-            if i % k == 0:
-                page += 1
+    start_page = 1
+    count = 0
+    for problems in arr:
+        end_page = start_page + (problems // k) + (0 if problems % k == 0 else 1) - 1
+        start_prob = 1
+        for p in range(start_page, end_page + 1):
+            end_prob = problems if (start_prob + k - 1) > problems else (start_prob + k - 1)
+            if start_prob <= p <= end_prob:
+                count += 1
+            start_prob = end_prob + 1
 
-        if p % k != 0:
-            page += 1
+        start_page = end_page + 1
 
-    return special
+    return count
 
 
 if __name__ == '__main__':
     nk = input().split()
     n = int(nk[0])
     k = int(nk[1])
-    arr = list(map(int, input().rstrip().split()))
+    arr = list(map(int, input().split()))
     result = workbook(n, k, arr)
     print(result)
