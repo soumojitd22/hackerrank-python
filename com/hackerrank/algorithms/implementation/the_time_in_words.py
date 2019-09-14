@@ -1,5 +1,5 @@
 """
-the-ime-in-words
+the-time-in-words
 """
 
 
