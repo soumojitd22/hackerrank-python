@@ -10,7 +10,7 @@ def workbook(n, k, arr):
         end_page = start_page + (problems // k) + (0 if problems % k == 0 else 1) - 1
         start_prob = 1
         for p in range(start_page, end_page + 1):
-            end_prob = problems if (start_prob + k - 1) > problems else (start_prob + k - 1)
+            end_prob = min((start_prob + k - 1), problems)
             if start_prob <= p <= end_prob:
                 count += 1
             start_prob = end_prob + 1
