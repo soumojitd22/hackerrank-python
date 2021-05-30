@@ -5,11 +5,11 @@ ctci-array-left-rotation
 """
 
 
-def rotLeft(a, d):
+def rot_left(a, d):
     return [a[(i + d) % len(a)] for i in range(len(a))]
 
 
 if __name__ == "__main__":
     n, d = map(int, input().split(" "))
     a = list(map(int, input().split(" ")))
-    print(rotLeft(a, d))
+    print(*rot_left(a, d), end=' ')
